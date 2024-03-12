@@ -36,6 +36,8 @@ h2 {
   color: hotpink;
   opacity: 0.81;
   letter-spacing: .63px;
+  font-family: Times, serif;
+  font-weight: lighter;
 }
 
 .logo {
@@ -46,22 +48,29 @@ h2 {
   border-radius: 100%;
   height: 81px;
   width: 81px;
-  margin: 45px;
-  transition: 300ms;
+  margin: 36px;
+  transition: 3s;
 }
 
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em hotpink);
   cursor: pointer;
+  transform: rotate(1080deg);
 }
 
+/*
 @keyframes logo-spin {
   from {
     transform: rotate(0);
   }
   to {
     transform: rotate(1080deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: logo-spin 1 5s ease;
   }
 }
 
@@ -73,10 +82,18 @@ h2 {
     transform: rotate3d(1, 2, -1, 360deg);
   }
 }
+*/
+
+@keyframes logo-glow {
+  0%    {filter: drop-shadow(0 0 -1em hotpink);}
+  40%   {filter: drop-shadow(0 0 2em hotpink);}
+  60%   {filter: drop-shadow(0 0 2em hotpink);}
+  100%  {filter: drop-shadow(0 0 -1em hotpink);}
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .logo {
-    animation: logo-spin infinite 5s ease;
+    animation: logo-glow infinite 5s ease;
   }
 }
 
@@ -89,7 +106,6 @@ h2 {
 .music-player {
   display: flex;
   flex-direction: column;
-  font-style: oblique;
   min-width: 320px;
   min-height: 320px;
   margin: 18px;
@@ -111,17 +127,17 @@ h2 {
 }
 
 .control {
-    border: 0px solid hotpink;
-    border-radius: 18px;
-    font-size: 13px;
-    font-weight: lighter;
-    color: hotpink;
-    background: white;
-    padding: 0px;
-    margin: 0px 5px;
-    transition-duration: .4s;
-    height: 36px;
-    width: 36px;
+  border: 0px solid hotpink;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: lighter;
+  color: hotpink;
+  background: none;
+  padding: 0px;
+  margin: 0px 5px;
+  transition-duration: .4s;
+  height: 36px;
+  width: 36px;
 }
 
 .control:hover {
@@ -131,10 +147,11 @@ h2 {
 
 p {
   color: #242424;
-  opacity: .81;
-  margin: 0 5px 5px 5px;
+  opacity: .63;
+  margin: 0 auto 9px;
   font-weight: lighter;
-  font-size: smaller;
+  font-family: Times, serif;
+  font-style: oblique;
 }
 
 .audio-vis {
@@ -152,8 +169,8 @@ p {
 }
 
 .light {
-  font-weight: lighter;
   font-size: 16px;
+  transform: rotate(90deg) translate(.63px);
 }
 
 .track-list {
