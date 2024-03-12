@@ -11,7 +11,7 @@ const allSongs = [
     title: "girl from the north country",
     artist: "bob dylan",
     duration: "2:22",
-    src: "./songs/test.mp3",
+    src: "./songs/test1.mp3",
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const allSongs = [
     title: "the gambler",
     artist: "kenny rogers",
     duration: "4:44",
-    src: "./songs/test.mp3",
+    src: "./songs/test1.mp3",
   },
   {
     id: 5,
@@ -50,8 +50,6 @@ let currentSongs = {
   currentSongTime: 0,
 };
 
-console.log(currentSongs);
-
 const displaySongs = (array) => {
   const songsHTML = array.map((song) => {
     return `<li>${song.title}</li>`;
@@ -73,3 +71,30 @@ const sortSongs = () => {
 }
 
 displaySongs(sortSongs());
+
+const audio = new Audio();
+
+const playSong = (id) => {
+  const song = currentSongs?.songs.find((song) => song.id === id);
+  audio.src = song.src;
+  audio.title = song.title;
+
+  if (currentSongs?.currentSong === null || currentSongs?.currentSong.id !== song.id) {
+    audio.currentTime = 0;
+  } else {
+    audio.currentTime = currentSongs?.currentSongTime;
+  }
+  currentSongs.currentSong = song;
+  
+  audio.play();
+};
+
+playBtn.addEventListener("click", () => {
+  if (currentSongs?.currentSong === null) {
+    playSong(currentSongs?.songs[0].id);
+    console.log("hello current song");
+  } else {
+    playSong(currentSongs?.currentSong.id)
+    console.log("hello again");
+  }
+});
