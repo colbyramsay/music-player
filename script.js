@@ -89,6 +89,11 @@ const playSong = (id) => {
   audio.play();
 };
 
+const pauseSong = () => {
+  currentSongs.currentSongTime = audio.currentTime;
+  audio.pause();
+};
+
 playBtn.addEventListener("click", () => {
   if (currentSongs?.currentSong === null) {
     playSong(currentSongs?.songs[0].id);
@@ -98,3 +103,5 @@ playBtn.addEventListener("click", () => {
     console.log("hello again");
   }
 });
+
+pauseBtn.addEventListener("click", pauseSong);
