@@ -175,4 +175,19 @@ p {
 
 .track-list {
   margin: 0 9px 9px 9px;
+  color: #242424;
+  opacity: .63;
+  font-weight: lighter;
+  font-family: Times, serif;
+  font-style: oblique;
+}
+
+ul {
+  opacity: .63;
+  list-style-type: none;
+  margin: 0px;
+}
+
+li {
+  margin: 0 0 5px 0;
 }
