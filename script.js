@@ -59,4 +59,17 @@ const displaySongs = (array) => {
   playlist.innerHTML = songsHTML;
 };
 
-displaySongs(currentSongs?.songs);
+const sortSongs = () => {
+  currentSongs?.songs.sort((a, b) => {
+    if (a.title < b.title) {
+      return -1;
+    }
+    if (a.title > b.title) {
+      return 1;
+    }
+    return 0;
+  });
+  return currentSongs?.songs;
+}
+
+displaySongs(sortSongs());
