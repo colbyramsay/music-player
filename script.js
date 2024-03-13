@@ -36,9 +36,20 @@ let currentSongs = {
   currentSongTime: 0,
 };
 
+const highlightCurrentSong = () => {
+  const playlistSongElements = document.querySelectorAll(".playlist-song");
+  const songToHighlight = document.getElementById(`song-${currentSongs?.currentSong?.id}`);
+
+  playlistSongElements.forEach((songEl) => {
+    songEl.removeAttribute("aria-current");
+  });
+
+  if (songToHighlight) songToHighlight.setAttribute("aria-current", "true");
+};
+
 const displaySongs = (array) => {
   const songsHTML = array.map((song) => {
-    return `<li>${song.title}</li>`;
+    return `<li id="song-${song.id}" class="playlist-song"><button class="playlist-button" onclick="playSong(${song.id})">${song.title}</button></li>`;
   }).join("");
   playlist.innerHTML = songsHTML;
 };
@@ -71,12 +82,16 @@ const playSong = (id) => {
     audio.currentTime = currentSongs?.currentSongTime;
   }
   currentSongs.currentSong = song;
-  
+  highlightCurrentSong();
+  playBtn.classList.add("highlight");
+  pauseBtn.classList.remove("highlight");
   audio.play();
 };
 
 const pauseSong = () => {
   currentSongs.currentSongTime = audio.currentTime;
+  playBtn.classList.remove("highlight");
+  pauseBtn.classList.add("highlight");
   audio.pause();
 };
 
@@ -114,10 +129,8 @@ const getCurrentSongIndex = () => currentSongs?.songs.indexOf(currentSongs?.curr
 playBtn.addEventListener("click", () => {
   if (currentSongs?.currentSong === null) {
     playSong(currentSongs?.songs[0].id);
-    console.log("hello current song");
   } else {
     playSong(currentSongs?.currentSong.id)
-    console.log("hello again");
   }
 });
 

@@ -123,16 +123,17 @@ h2 {
   display: flex;
   background: white;
   border-radius: 27px;
-  padding: 0;
+  padding: 0px;
   margin: 18px 0 15px 0;
 }
 
 .control {
-  border: 0px solid hotpink;
+  border: 0px dotted hotpink;
   border-radius: 18px;
   font-size: 13px;
   font-weight: lighter;
-  color: hotpink;
+  color: #242424;
+  opacity: .54;
   background: none;
   padding: 0px;
   margin: 0px 5px;
@@ -141,8 +142,13 @@ h2 {
   width: 36px;
 }
 
+.highlight {
+  color: hotpink;
+  opacity: 1;
+}
+
 .control:hover {
-  color: silver;
+  color: hotpink;
   cursor: pointer;
 }
 
@@ -172,23 +178,34 @@ p {
 .light {
   font-size: 16px;
   transform: rotate(90deg) translate(.63px);
+  -webkit-transform: rotate(90deg) translate(.63px);
 }
+
 
 .track-list {
   margin: 0 9px 9px 9px;
-  color: #242424;
-  opacity: .63;
-  font-weight: lighter;
-  font-family: Times, serif;
-  font-style: oblique;
 }
 
 ul {
-  opacity: .63;
   list-style-type: none;
   margin: 0 0 9px 0;
 }
 
 li {
   margin: 0 0 5px 0;
+}
+
+.playlist-button:hover {
+  cursor: pointer;
+  color: hotpink;
+}
+
+.playlist-button {
+  background: none;
+  color: silver;
+  transition-duration: .4s;
+}
+
+[aria-current="true"] {
+  filter: contrast(50%);
 }
