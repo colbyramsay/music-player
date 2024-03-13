@@ -1,38 +1,24 @@
 const allSongs = [
   {
     id: 0,
-    title: "boots of spanish leather",
-    artist: "bob dylan",
-    duration: "1:11",
-    src: "./songs/test.mp3",
+    title: "simple drum beat",
+    artist: "colby ramsay",
+    duration: "0:13",
+    src: "./songs/simple-drum-beat.mp3",
   },
   {
     id: 1,
-    title: "girl from the north country",
-    artist: "bob dylan",
-    duration: "2:22",
-    src: "./songs/test1.mp3",
+    title: "disco beat build-up",
+    artist: "colby ramsay",
+    duration: "2:56",
+    src: "./songs/disco-beat-build-up.mp3",
   },
   {
     id: 3,
-    title: "no woman no cry",
-    artist: "bob marley",
-    duration: "3:33",
-    src: "./songs/test.mp3",
-  },
-  {
-    id: 4,
-    title: "the gambler",
-    artist: "kenny rogers",
-    duration: "4:44",
-    src: "./songs/test1.mp3",
-  },
-  {
-    id: 5,
-    title: "another one bites the dust",
-    artist: "queen",
-    duration: "5:55",
-    src: "./songs/test.mp3",
+    title: "flute disco beat",
+    artist: "colby ramsay",
+    duration: "2:36",
+    src: "./songs/flute-disco-beat.mp3",
   },
 ];
 
@@ -94,6 +80,37 @@ const pauseSong = () => {
   audio.pause();
 };
 
+const nextSong = () => {
+  if (currentSongs?.currentSong === null) {
+    playSong(currentSongs?.songs[0].id);
+  } else {
+    const currentSongIndex = getCurrentSongIndex();
+    const nextSong = currentSongs?.songs[currentSongIndex + 1];
+    
+    playSong(nextSong.id);
+  }
+};
+
+const previousSong = () => {
+  if (currentSongs?.currentSong === null) return;
+  else {
+    const currentSongIndex = getCurrentSongIndex();
+    const previousSong = currentSongs?.songs[currentSongIndex - 1];
+    
+    playSong(previousSong.id);
+  }
+};
+
+const shuffle = () => {
+  currentSongs?.songs.sort(() => Math.random() - 0.5);
+  currentSongs.currentSong = null;
+  currentSongs.currentSongTime = 0;
+  displaySongs(currentSongs?.songs);
+  pauseSong();
+}
+
+const getCurrentSongIndex = () => currentSongs?.songs.indexOf(currentSongs?.currentSong);
+
 playBtn.addEventListener("click", () => {
   if (currentSongs?.currentSong === null) {
     playSong(currentSongs?.songs[0].id);
@@ -105,3 +122,9 @@ playBtn.addEventListener("click", () => {
 });
 
 pauseBtn.addEventListener("click", pauseSong);
+
+nextBtn.addEventListener("click", nextSong);
+
+prevBtn.addEventListener("click", previousSong);
+
+shufBtn.addEventListener("click", shuffle);

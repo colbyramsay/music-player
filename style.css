@@ -31,13 +31,13 @@ h1 {
 }
 
 h2 {
-  margin: 3px;
+  margin: 2px 0 0 0;
   font-style: oblique;
   font-weight: normal;
   color: hotpink;
   opacity: 0.81;
   letter-spacing: .63px;
-  font-family: Times, 'Times New Roman', serif;
+  font-family: Times, serif;
   font-weight: lighter;
 }
 
