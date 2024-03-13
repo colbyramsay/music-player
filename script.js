@@ -141,3 +141,16 @@ nextBtn.addEventListener("click", nextSong);
 prevBtn.addEventListener("click", previousSong);
 
 shufBtn.addEventListener("click", shuffle);
+
+audio.addEventListener("ended", () => {
+  const currentSongIndex = getCurrentSongIndex();
+  const nextSongExists = currentSongs?.songs[currentSongIndex + 1] !== undefined;
+  if (nextSongExists) {
+    nextSong();
+  } else {
+    currentSongs.currentSong = null;
+    currentSongs.currentSongTime = 0;
+    pauseSong();
+    highlightCurrentSong();
+  }
+})
