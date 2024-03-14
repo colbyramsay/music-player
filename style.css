@@ -1,5 +1,6 @@
 :root {
   --black-color: hsl(0, 0%, 14%);
+  --black-color-light: hsla(0, 0%, 14%, 0.81);
   --black-color-ghost: hsl(0, 0%, 54%);
   --super-white-color: hsl(0, 0%, 100%);
   --off-white-color: hsl(0, 0%, 96%);
@@ -7,7 +8,7 @@
   --primary-color: hsl(204, 100%, 73%);
   --secondary-color: hsl(75, 100%, 94%);
   --highlight-color: hsl(330, 100%, 71%);
-  --highlight-color-ghost: hsla(330, 100%, 71%, 0.54);
+  --highlight-color-ghost: hsla(330, 100%, 71%, 0.81);
   --primary-gradient: linear-gradient(0deg, var(--primary-color), var(--secondary-color));
   --primary-gradient-180: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
   --highlight-gradient: linear-gradient(0deg, var(--highlight-color), var(--secondary-color));
@@ -50,9 +51,8 @@ body {
 }
 
 h1 {
-  color: hsl(0, 0%, 14%);
+  color: var(--black-color-light);
   margin: 18px 18px 0 18px;
-  opacity: 0.81;
   letter-spacing: 1.8px;
 }
 
@@ -60,8 +60,7 @@ h2 {
   margin: 0;
   font-style: oblique;
   font-weight: lighter;
-  color: var(--highlight-color);
-  opacity: 0.81;
+  color: var(--highlight-color-ghost);
   letter-spacing: .63px;
   font-family: var(--font-secondary);
 }
@@ -108,7 +107,7 @@ h2 {
   flex-direction: column;
   min-width: 320px;
   min-height: 320px;
-  margin: 18px;
+  margin: 15px 18px 18px 18px;
   padding: 0px;
   background: var(--off-white-color);
   color: var(--highlight-color); 
@@ -123,7 +122,7 @@ h2 {
   background: var(--super-white-color);
   border-radius: 27px;
   padding: 0px;
-  margin: 15px 0 15px 0;
+  margin: 18px 0 15px 0;
 }
 
 .control {
@@ -146,7 +145,7 @@ h2 {
 }
 
 .control:hover {
-  color: var(--highlight-color);
+  color: var(--highlight-color-ghost);
   cursor: pointer;
 }
 
@@ -159,9 +158,13 @@ h2 {
 }
 
 .gif-container {
-  border-radius: 18px 18px 9px 9px;
-  border: 6px solid var(--off-white-color);
-  height: 220px;
+  border-radius: 18px 18px 0px 0px;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--black-color-light);
+  height: 270px;
+  background-size: 222%;
+  background-position: center;
 }
 
 .rotate90 {
@@ -190,7 +193,7 @@ li {
 
 .playlist-button:hover {
   cursor: pointer;
-  color: var(--highlight-color);
+  color: var(--highlight-color-ghost);
 }
 
 .playlist-button {
@@ -201,6 +204,11 @@ li {
 
 [aria-current="true"] {
   filter: contrast(36%);
+}
+
+.search-form {
+  color: var(--black-color-ghost);
+  padding: 15px 0 0 0;
 }
 
 input {
@@ -235,16 +243,11 @@ input:focus {
   background: var(--super-white-color);
   border-radius: 3px;
   border: 0px solid var(--highlight-color-ghost);
-  color: var(--gray-color);
+  color: var(--black-color-ghost);
   transition: .4s;
 }
 
 .search-btn:hover {
-  color: var(--highlight-color);
+  color: var(--highlight-color-ghost);
   cursor: pointer;
-}
-
-.search-form {
-  color: var(--black-color-ghost);
-  padding: 9px 0 0 0;
 }

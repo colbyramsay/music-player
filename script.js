@@ -86,6 +86,7 @@ const playSong = (id) => {
   playBtn.classList.add("highlight");
   pauseBtn.classList.remove("highlight");
   audio.play();
+  fetchNewImage();
 };
 
 const pauseSong = () => {
