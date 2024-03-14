@@ -1,11 +1,13 @@
 :root {
   --black-color: hsl(0, 0%, 14%);
+  --black-color-ghost: hsl(0, 0%, 54%);
   --super-white-color: hsl(0, 0%, 100%);
   --off-white-color: hsl(0, 0%, 96%);
   --gray-color: hsl(0, 0%, 75%);
   --primary-color: hsl(204, 100%, 73%);
   --secondary-color: hsl(75, 100%, 94%);
   --highlight-color: hsl(330, 100%, 71%);
+  --highlight-color-ghost: hsla(330, 100%, 71%, 0.54);
   --primary-gradient: linear-gradient(0deg, var(--primary-color), var(--secondary-color));
   --primary-gradient-180: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
   --highlight-gradient: linear-gradient(0deg, var(--highlight-color), var(--secondary-color));
@@ -14,8 +16,8 @@
   --root-font-size: 16px;
   font-size: var(--root-font-size);
 
-  --font-headline: "Roboto Mono", monospace;
-  --font-family: "Lato", sans-serif;
+  --font-primary: 'Helvetica Neue', Helvetica, sans-serif;
+  --font-secondary: 'Times', serif;
 }
 
 *,
@@ -25,7 +27,7 @@
 }
 
 * {
-  border: 0px solid var(--highlight-color);
+  border: 0px dotted var(--highlight-color);
   padding: 0;
   margin: 0;
 }
@@ -44,7 +46,7 @@ body {
   flex-direction: column;
   overflow: visible;
   background: var(--primary-gradient);
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: var(--font-primary);
 }
 
 h1 {
@@ -57,12 +59,11 @@ h1 {
 h2 {
   margin: 0;
   font-style: oblique;
-  font-weight: normal;
+  font-weight: lighter;
   color: var(--highlight-color);
   opacity: 0.81;
   letter-spacing: .63px;
-  font-family: Times, serif;
-  font-weight: lighter;
+  font-family: var(--font-secondary);
 }
 
 .logo {
@@ -130,8 +131,7 @@ h2 {
   border-radius: 18px;
   font-size: 13px;
   font-weight: lighter;
-  color: var(--black-color);
-  opacity: .54;
+  color: var(--black-color-ghost);
   background: none;
   padding: 0px;
   margin: 0px 5px;
@@ -150,16 +150,11 @@ h2 {
   cursor: pointer;
 }
 
-p {
-  color: var(--black-color);
-  opacity: .63;
-  margin: 0 auto 9px;
-  font-weight: lighter;
-  font-family: Times, serif;
-  font-style: oblique;
-}
-
 .audio-vis {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   border-radius: 18px 18px 0 0;
   background: var(--super-white-color);
   width: 320px;
@@ -203,5 +198,51 @@ li {
 }
 
 [aria-current="true"] {
-  filter: contrast(50%);
+  filter: contrast(36%);
+}
+
+input {
+  border: 0px solid var(--gray-color);
+  color: var(--gray-color);
+  background: var(--super-white-color);
+  border-radius: 3px;
+  text-align: center;
+  margin: 0 5px 0 0;
+  width: 81px;
+  height: 27px;
+  padding: 0px;
+}
+
+input:focus {
+  border: 0px solid var(--highlight-color-ghost);
+  box-shadow: 0 0 3px var(--highlight-color);
+  outline-offset: 0px;
+  outline: none;
+  color: var(--black-color-ghost);
+}
+
+.search-btn {
+  font-family: var(--font-secondary);
+  font-style: oblique;
+  letter-spacing: 0px;
+  font-size: 15px;
+  height: 27px;
+  width: 81px;
+  margin: 0 0 0 5px;
+  padding: 0;
+  background: var(--super-white-color);
+  border-radius: 3px;
+  border: 0px solid var(--highlight-color-ghost);
+  color: var(--gray-color);
+  transition: .4s;
+}
+
+.search-btn:hover {
+  color: var(--highlight-color);
+  cursor: pointer;
+}
+
+.search-form {
+  color: var(--black-color-ghost);
+  padding: 18px 0 0 0;
 }
