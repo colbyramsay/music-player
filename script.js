@@ -153,4 +153,29 @@ audio.addEventListener("ended", () => {
     pauseSong();
     highlightCurrentSong();
   }
-})
+});
+
+const gifContainer = document.getElementById("gif-container");
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
+
+async function fetchNewImage() {
+  try {
+    const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=tJpxCdKAb4sssyhZR7oFtkctocM3F3qC&s=${searchInput.value}`, { mode: 'cors' });
+    const imgData = await response.json();
+    const fetchedImg = imgData.data.images.original.url;
+    gifContainer.style.backgroundImage = `url("${fetchedImg}")`;
+  } catch (err) {
+    alert(err);
+  }
+}
+
+fetchNewImage();
+
+searchBtn.addEventListener("click", fetchNewImage);
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    fetchNewImage();
+  }
+});
+
