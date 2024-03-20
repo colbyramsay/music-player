@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Player</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="logo"></div>
-  <div class="container">
-    <h1>MUSIC PLAYER</h1>
-    <h2>a groovy music app</h2>
-    </label>
-    <div class="music-player">
-      <div class="audio-vis">
-        <div class="gif-container" id="gif-container">
+    <div class="logo"></div>
+    <div class="container">
+        <h1>MUSIC PLAYER</h1>
+        <h2>a groovy music app</h2>
+        </label>
+        <div class="music-player">
+        <div class="audio-vis">
+            <div class="gif-container" id="gif-container">
+            </div>
         </div>
-      </div>
-      <div class="search-form">
-        <label for="search-input"></label>
-        <input
-        value="clouds"
-        type="text"
-        name="search input"
-        id="search-input"
-        class="search-input"
-        />
-        <button class="search-btn" id="search-btn">engage</button>
-      </div>
-        <div class="controls">
-          <button class="control" type="button" id="previous" aria-label="Previous"><<</button>
-          <button class="control rotate90" type="button" id="play" aria-label="Play">∆</button>
-          <button class="control rotate90" type="button" id="pause" aria-label="Pause">=</button>
-          <button class="control" type="button" id="next" aria-label="Next">>></button>
-          <button class="control light" type="button" id="shuffle" aria-label="Shuffle">&</button>
+        <div class="search-form">
+            <label for="search-input"></label>
+            <input
+            value="clouds"
+            type="text"
+            name="search input"
+            id="search-input"
+            class="search-input"
+            />
+            <button class="search-btn" id="search-btn">engage</button>
         </div>
-      <div class="track-list">
-        <ul id="playlist"></ul>
-      </div>
+            <div class="controls">
+            <button class="control" type="button" id="previous" aria-label="Previous"><<</button>
+            <button class="control rotate90" type="button" id="play" aria-label="Play">∆</button>
+            <button class="control rotate90" type="button" id="pause" aria-label="Pause">=</button>
+            <button class="control" type="button" id="next" aria-label="Next">>></button>
+            <button class="control light" type="button" id="shuffle" aria-label="Shuffle">&</button>
+            </div>
+        <div class="track-list">
+            <ul id="playlist"></ul>
+        </div>
+        </div>
     </div>
-  </div>
 </body>
 </html>
